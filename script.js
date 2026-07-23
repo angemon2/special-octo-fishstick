@@ -1,4 +1,4 @@
-function myFun () {
-  document.getElementById("demo")
-  .innerHTML = 'Does This work?'
-}
+function myFun() {
+            document.getElementById("demo")
+                .innerHTML = "I'm not sure why the first button doesn't work...";
+        }
