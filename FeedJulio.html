@@ -95,9 +95,22 @@ button {
             count.textContent = c;
             incCount.textContent = ci;
             decCount.textContent = cd;
+	    if (c==0) {right.innerHTML = `<img src="0.jpg">`;}
             if (c==1) {right.innerHTML = `<img src="1.jpg">`;}
+	    if (c==2) {right.innerHTML = `<img src="2.png">`;}
+	    if (c==3) {right.innerHTML = `<img src="3.png">`;}
+            if (c==4) {right.innerHTML = `<img src="4.png">`;}
+	    if (c==5) {right.innerHTML = `<img src="5.png">`;}
+	    if (c==-1) {right.innerHTML = `<img src="-1.png">`;}
+	    if (c==-2) {right.innerHTML = `<img src="-2.png">`;}
+	    if (c==-3) {right.innerHTML = `<img src="-3.png">`;}
+            if (c==-4) {right.innerHTML = `<img src="-4.png">`;}
+	    if (c==-5) {right.innerHTML = `<img src="-5.png">`;}
+	    if (c==-6) {right.innerHTML = `<img src="-6.png">`;}
+	    if (c==-7) {right.innerHTML = `<img src="-7.png">`;}
         }
 	function reset() {
+		c = c - c
 		cd = cd - cd;
 		ci = ci - ci;
 		update();
