@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#parent {
+  display: flex;
+  justify-content: space-around;
+}
+
+#left {
+  border: 1px solid lightgray;
+  background-color: red;
+  width: 40%;
+  text-align: center;
+  padding: 20px; 
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  background-color: #fff;
+}
+
+#right {
+  border: 1px solid lightgray;
+  background-color: green;
+  width: 40%;
+}
+.counter {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 5px;
+  curser: pointer;
+}
+
+.clicks{
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+
+</style>
+</head>
+<body>
+    <div id="parent">
+        <div id="left">
+        <h1> Julio is hungry... </h1>
+    <div class="counter">
+      <p id="count">0</p>
+    </div>
+    <div>
+      <button onclick="inc()">Give him food</button>
+      <button onclick="dec()">Make him wait</button> 
+    </div>
+    <div class="clicks">
+      <p>Bowls of food <span id="incCount">0</span> </p>
+      <p>Minutes waiting <span id="decCount">0</span></p>
+    </div>
+	<div class="reset clicks">
+      <button onclick="reset()">Reset click count</button>
+    </div>
+
+        </div>
+        <div id="right">
+        <img src="0.jpg">
+        </div>
+    </div>
+
+<script>
+        let c = 0, ci = 0, cd = 0;
+        const count = document.getElementById("count");
+        const incCount = document.getElementById("incCount");
+        const decCount = document.getElementById("decCount");
+        function inc() {
+            c++;
+            ci = ci + 1;
+            update();
+        }
+        function dec() {
+            c = c - 1;
+            cd = cd + 1;
+            update();
+        }
+        function update() {
+            count.textContent = c;
+            incCount.textContent = ci;
+            decCount.textContent = cd;
+        }
+	function reset() { 
+		cd = cd - cd;
+		ci = ci - ci;
+		update();
+	}
+
+	function pic() {
+	c == 1 ? document.getElementById("right")
+	.innerHTML = "<img src="1.jpg">"
+	}
+
+    </script>
+</body>
+</html>
