@@ -95,16 +95,12 @@ button {
             count.textContent = c;
             incCount.textContent = ci;
             decCount.textContent = cd;
+            if (c==1) {right.innerHTML = `<img src="1.jpg">`;}
         }
-	function reset() { 
+	function reset() {
 		cd = cd - cd;
 		ci = ci - ci;
 		update();
-	}
-
-	function pic() {
-	c == 1 ? document.getElementById("right");
-	right.textcontent = "<img src="1.jpg">";
 	}
 
     </script>
