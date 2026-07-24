@@ -1,51 +1,86 @@
-body, h1, h2, p, ul, li {
-  margin: 0;
-  padding:0;
-}
-
 body {
-  font-family: comic-sans, sans-serif;
-  background-color: #f2f2f2;
-  color: #333;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    background: rgba(0, 128, 128, 0.3);
 }
 
-header {
-  background-color: #333;
-  padding: 20px;
+#quiz-app {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-h1 {
-  color: #fff;
-  font-size: 28px;
-  margin-bottom: 10px;
+#question-container {
+    margin-bottom: 20px;
 }
 
-ul {
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #333333;
+#question {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-ul li {
-  float: left;
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
 }
 
-ul li a {
-  display: block;
+.button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#controls {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#controls.show {
+    display: flex;
+}
+
+#start-btn, #next-btn {
+    padding: 10px 20px;
+    background-color: #28A745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-btn:hover, #next-btn:hover {
+  background-color: #218838;
+}
+
+.hide {
+  display: none;
+}
+
+.correct {
+  background-color: #28a745; /* Green color for correct answers */
   color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
 }
 
-ul li a:hover {
-  background-color: #111111;
-}
-
-
-footer {
-  color: #fff;
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
+.wrong {
+  background-color: #dc3545; /* Red color for incorrect answers */
+  color: white;
 }
