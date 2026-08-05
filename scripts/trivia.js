@@ -7,8 +7,14 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
+const quizAppElement = document.getElementById('quiz-app');
+const resultsElement = document.createElement('div');
+resultsElement.setAttribute('id', 'results');
+resultsElement.classList.add('results', 'hide'); // Initially hidden
+quizAppElement.appendChild(resultsElement);
 
 let shuffledQuestions, currentQuestionIndex;
+let score = 0;
 
 const questions = [
   {
@@ -19,8 +25,16 @@ const questions = [
       { text: 'The Pedagody of the Oppressed', correct: true },
       { text: 'A Dying Colonialism', correct: false}
     ]
+  },
+  {
+    question: 'Who is the author of Borderlands/La Frontera?',
+    answers: [
+      { text: 'Angela Davis', correct: false },
+      { text: 'Gloria Anzaldua', correct: true },
+      { text: 'Toni Morrison', correct: false },
+      { text: 'Jules Vern', correct: false }
+    ]
   }
-  // add more here
 ]
 
 startButton.addEventListener('click', startGame);
@@ -56,12 +70,18 @@ function selectAnswer(selectedButton) {
   const correct = selectedButton.dataset.correct;
   setStatusClass(selectedButton, correct);
 
+  if (correct) {
+      score++; // Increment score for correct answers
+  }
+
   // Delay revealing the "Next" button to allow users to review their choice
   setTimeout(() => {
       if (shuffledQuestions.length > currentQuestionIndex + 1) {
           nextButton.classList.remove('hide');
-      }
-  }, 1000); // Adjust delay as needed
+      } else {
+            concludeQuiz();
+        }
+  }, 10); // Adjust delay as needed
 }
 
 function setStatusClass(element, correct) {
@@ -94,4 +114,24 @@ function resetState() {
   while (answerButtonsElement.firstChild) {
       answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
+}
+
+function concludeQuiz() {
+  questionContainerElement.classList.add('hide');
+  nextButton.classList.add('hide');
+
+  resultsElement.classList.remove('hide');
+  resultsElement.innerHTML = `
+      <h2>Quiz Completed!</h2>
+      <p>Your score: ${score} out of ${shuffledQuestions.length}</p>
+      <button onclick="restartQuiz()">Restart Quiz</button>
+  `;
+  quizAppElement.appendChild(resultsElement);
+}
+
+function restartQuiz() {
+  resultsElement.classList.add('hide');
+  score = 0;
+  currentQuestionIndex = 0;
+  startGame();
 }
